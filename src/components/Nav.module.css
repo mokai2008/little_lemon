@@ -1,0 +1,33 @@
+.list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+}
+
+.list li {
+    margin: 0 15px; /* Spacing between items */
+}
+
+.list a {
+    text-decoration: none;
+    color: #333; /* Link color */
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.list a:hover {
+    color: #495E57; /* Color on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .list {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    .list li {
+        margin: 10px 0; /* Spacing for stacked items */
+    }
+}
