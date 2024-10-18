@@ -1,0 +1,74 @@
+
+.call {
+    background-color: #495E57;
+    line-height: 1.2;
+    font-family: 'Makhrazi';
+    margin-bottom: 20px;
+}
+
+.call h2 {
+    color: #F4CE14;
+    font-size: 40px;
+    margin: 0;
+    margin-top: 30px;
+}
+
+.call h3 {
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* Adjust as needed */
+}
+
+.call .content {
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto;
+    width: 93%;
+    align-items: center;
+    font-size: 20px;
+}
+
+.call .item {
+    width: 30%;
+}
+
+.call img {
+    border-radius: 10%;
+    max-width: 100%; /* Ensure the image doesn't overflow */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 300px; /* Set a max height to keep it reasonable */
+    position: relative;
+    top: 40px;
+    box-shadow: 10px 10px 5px #495E57;
+}
+
+.call button {
+    background-color: #F4CE14;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 30px;
+}
+
+.call button:hover {
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .call .content {
+        flex-direction: column; /* Stack items vertically on small screens */
+
+        text-align: center;
+    }
+
+    .call .item {
+        width: 100%;
+        
+    }
+
+}
+

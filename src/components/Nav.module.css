@@ -22,7 +22,7 @@
 }
 
 /* Responsive styles */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .list {
         flex-direction: column; /* Stack items vertically on small screens */
     }
