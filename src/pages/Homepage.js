@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../components/Header";
 import CallToAction from "../components/CallToAction";
+import Specials from "../components/Specials";
 const Homepage = () => {
   return (
     <>
-      <Header />
-      <main>
+      <main className="main">
         <CallToAction />
+        <Specials />
       </main>
     </>
   );

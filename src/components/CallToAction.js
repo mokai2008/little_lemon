@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./CallToAction.module.css";
 import callToAction from "../assets/images/restaurant.jpg";
+import Button from "./Button";
 
 const CallToAction = () => {
   return (
@@ -13,7 +14,7 @@ const CallToAction = () => {
             We are a family owned mediterranean restaurant, focused on
             traditional recipes served with a modern twist.
           </p>
-          <button>Reserve a Table</button>
+          <Button title="Reserve a table" />
         </section>
         <section className={classes.item}>
           <img src={callToAction} alt="Little Lemon restaurant" />
