@@ -33,6 +33,7 @@
     background-color: #f8f8f8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .item .tags {
@@ -54,7 +55,7 @@
 }
 
 .content img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
