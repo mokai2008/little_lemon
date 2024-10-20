@@ -43,7 +43,6 @@ const Testnomials = () => {
           </section>
           <p>Review</p>
         </section>
-        <section className={classes.item}></section>
       </section>
     </section>
   );
