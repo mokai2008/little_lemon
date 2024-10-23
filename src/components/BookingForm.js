@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./FormStyles.css"; // Import your CSS file
 
-const BookingForm = () => {
+const BookingForm = (props) => {
   const [formValues, setFormValues] = useState({
     date: "",
     time: "",
@@ -11,14 +11,7 @@ const BookingForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  const [availableTimes, setAvailableTimes] = useState([
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00",
-  ]);
+  const availableTimes = props.availableTimes;
 
   const validate = (values) => {
     const errors = {};
