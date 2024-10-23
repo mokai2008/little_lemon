@@ -2,6 +2,8 @@ import React from "react";
 import CallToAction from "../components/CallToAction";
 import Specials from "../components/Specials";
 import Testnomials from "../components/Testnomials";
+import Chicago from "../components/Chicago";
+import Footer from "../components/Footer";
 const Homepage = () => {
   return (
     <>
@@ -9,6 +11,8 @@ const Homepage = () => {
         <CallToAction />
         <Specials />
         <Testnomials />
+        <Chicago />
+        <Footer />
       </main>
     </>
   );

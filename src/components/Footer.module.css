@@ -1,0 +1,33 @@
+.footer {
+    background-color: #000;
+    margin-top: 150px;
+    color: #fff;
+}
+
+.footer_content {
+
+display: flex;
+justify-content: center;
+padding: 20px;
+font-family: 'Makhrazi';
+padding: 20px;
+width: 73%;
+margin: 0 auto;
+
+}
+
+.footer_img,
+.footer_nav,
+.contact,
+.social {
+    width: 30%;
+}
+
+
+.footer img {
+    width: 100%;
+}
+
+.footer ul {
+    list-style: none;
+}

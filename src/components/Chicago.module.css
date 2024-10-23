@@ -1,0 +1,41 @@
+.chicago {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 100px auto;
+    }
+
+.chicago > div {
+    width: 50%;
+}
+
+.chicago .images {
+    width: 100%;
+    position: relative;
+}
+
+.chicago .images img {
+    max-width: 50%;
+    height: auto; /* This keeps the aspect ratio intact */
+    border-radius: 10px;
+}
+
+.chicago h2 {
+    color: #F4CE14;
+    font-size: 40px;
+    margin: 0;
+    margin-top: 30px;
+}
+
+.chicago h3 {
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* Adjust as needed */
+    color: #000;
+}
+
+.images img:nth-child(1) {
+    position: absolute;
+    right: 100px;
+    top: 100px;
+}
