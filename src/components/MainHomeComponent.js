@@ -1,7 +1,7 @@
 import React from "react";
 import CallToAction from "./CallToAction";
 import Specials from "./Specials";
-import Testnomials from "./Testnomials";
+import Testnomials from "./Testimonials";
 import Chicago from "./Chicago";
 import Footer from "./Footer";
 

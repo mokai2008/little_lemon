@@ -1,8 +1,8 @@
 import React from "react";
-import classes from "./Testnomials.module.css";
+import classes from "./Testimonials.module.css";
 import item1 from "../assets/images/item1.jpg";
 
-const Testnomials = () => {
+const Testimonials = () => {
   return (
     <section className={classes.testo}>
       <h1>Testimonials</h1>
@@ -48,4 +48,4 @@ const Testnomials = () => {
   );
 };
 
-export default Testnomials;
+export default Testimonials;

@@ -22,11 +22,7 @@ const Specials = () => {
               <p>Avocado</p>
               <p className={classes.price}>$10.99</p>
             </section>
-            <p>
-              Avocado and mango salad with a side of dressing Avocado and mango
-              salad with a side of dressing Avocado and mango salad with a side
-              of dressing
-            </p>
+            <p>Avocado and mango salad with a side of dressing.</p>
             <a className={classes.order}>Order a delivery</a>
           </section>
         </section>
@@ -37,26 +33,18 @@ const Specials = () => {
               <p>Avocado</p>
               <p className={classes.price}>$10.99</p>
             </section>
-            <p>
-              Avocado and mango salad with a side of dressing Avocado and mango
-              salad with a side of dressing Avocado and mango salad with a side
-              of dressing
-            </p>
+            <p>Avocado and mango salad with a side of dressing.</p>
             <a className={classes.order}>Order a delivery</a>
           </section>
         </section>
         <section className={classes.item}>
-          <img src={item3} alt="specials-item2" />
+          <img src={item3} alt="specials-item3" />
           <section className={classes.details}>
             <section className={classes.tags}>
               <p>Avocado</p>
               <p className={classes.price}>$10.99</p>
             </section>
-            <p>
-              Avocado and mango salad with a side of dressing Avocado and mango
-              salad with a side of dressing Avocado and mango salad with a side
-              of dressing
-            </p>
+            <p>Avocado and mango salad with a side of dressing.</p>
             <a className={classes.order}>Order a delivery</a>
           </section>
         </section>

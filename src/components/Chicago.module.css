@@ -1,24 +1,30 @@
 .chicago {
     display: flex;
+    flex-direction: column; /* Stack elements vertically */
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 90%; /* Adjusted width for better mobile display */
     margin: 100px auto;
-    }
+}
 
 .chicago > div {
-    width: 50%;
+    width: 100%; /* Full width for smaller screens */
+    padding: 10px; /* Added padding for better spacing */
 }
 
 .chicago .images {
+    display: flex; /* Use flex to arrange images */
+    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
+    justify-content: center; /* Center images */
     width: 100%;
     position: relative;
 }
 
 .chicago .images img {
-    max-width: 50%;
+    max-width: 100%; /* Adjust to full width for smaller screens */
     height: auto; /* This keeps the aspect ratio intact */
     border-radius: 10px;
+    margin: 5px; /* Added margin between images */
 }
 
 .chicago h2 {
@@ -35,7 +41,52 @@
 }
 
 .images img:nth-child(1) {
-    position: absolute;
+    position: absolute; /* Adjust based on design */
     right: 100px;
     top: 100px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .chicago {
+        flex-direction: column; /* Stack elements vertically */
+        margin: 50px 10px; /* Adjust margin for smaller screens */
+    }
+
+    .chicago > div {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .chicago h2 {
+        font-size: 30px; /* Adjust font size */
+    }
+
+    .chicago h3 {
+        font-size: 20px; /* Adjust font size */
+    }
+
+    .chicago .images img {
+        max-width: 60%; /* Set a smaller max width for images */
+        margin: 10px; /* Space between images */
+    }
+}
+
+@media (max-width: 480px) {
+    .chicago h2 {
+        font-size: 24px; /* Further reduce font size */
+    }
+
+    .chicago h3 {
+        font-size: 18px; /* Further reduce font size */
+    }
+
+    .chicago .images img {
+        max-width: 50%; /* Further reduce image size */
+        margin: 10px; /* Space between images */
+    }
+
+    .images img:nth-child(1) {
+        position: static; /* Reset position for small screens */
+        margin: 0 auto; /* Center image */
+    }
 }

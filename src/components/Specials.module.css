@@ -1,5 +1,5 @@
 .specials {
-    width: 73%;
+    width: 90%; /* Use a percentage for responsiveness */
     margin: 0 auto;
     margin-top: 50px;
 }
@@ -21,12 +21,13 @@
 
 .content {
     display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align items to the start */
 }
 
 .item {
-    width: 30%;
+    width: calc(33.33% - 40px); /* Responsive width */
     margin: 20px;
     padding: 10px;
     border-radius: 10px;
@@ -50,6 +51,7 @@
 
 .content img {
     width: 100%;
+    height: auto; /* Maintain aspect ratio */
     transition: all ease 0.5s;
     cursor: pointer;
 }
@@ -64,11 +66,23 @@
     padding: 20px;
 }
 
-
 .item .order {
     border: none;
     font-weight: bold;
     display: inline-block;
     margin-top: 30px;
     cursor: pointer;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .item {
+        width: calc(50% - 40px); /* Two items per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 100%; /* One item per row */
+    }
 }
