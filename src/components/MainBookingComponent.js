@@ -1,6 +1,8 @@
+// MainBookingComponent.js
 import React, { useReducer, useState } from "react";
 import BookingForm from "./BookingForm";
-import { fetchAPI } from "../api";
+import { fetchAPI, submitAPI } from "../api"; // Ensure you have the fetchAPI method
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 export function initializeTimes() {
   return fetchAPI(new Date());
@@ -45,6 +47,14 @@ export function updateTimes(state, action) {
 const MainBookingComponent = () => {
   const [state, dispatch] = useReducer(updateTimes, []);
   const [selectedDate, setSelectedDate] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const submitForm = async (formData) => {
+    const success = await submitAPI(formData); // Call your submit API
+    if (success) {
+      navigate("/confirmed"); // Navigate to the confirmation page
+    }
+  };
 
   function handleUpdateDate(date) {
     setSelectedDate(date);
@@ -55,7 +65,6 @@ const MainBookingComponent = () => {
     dispatch({ type: "UPDATE_TIMES", payload: data });
   }
 
-  // Find available times for the selected date or set to default times if none found
   const dateEntry = state.find((item) => item.selectedDate === selectedDate);
   const availableTimes = dateEntry
     ? dateEntry.availableTimes
@@ -66,6 +75,7 @@ const MainBookingComponent = () => {
       availableTimes={availableTimes}
       onUpdateTimes={handleUpdateTimes}
       onUpdateDate={handleUpdateDate}
+      onSubmit={submitForm} // Pass the submit function to the BookingForm
     />
   );
 };

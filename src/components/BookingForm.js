@@ -2,8 +2,15 @@
 import React, { useState } from "react";
 import "./FormStyles.css"; // Import your CSS file
 
-const BookingForm = ({ availableTimes = [], onUpdateTimes, onUpdateDate }) => {
+const BookingForm = ({
+  availableTimes = [],
+  onUpdateTimes,
+  onUpdateDate,
+  onSubmit,
+}) => {
   const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
     date: "",
     time: "",
     guests: 1,
@@ -14,6 +21,12 @@ const BookingForm = ({ availableTimes = [], onUpdateTimes, onUpdateDate }) => {
 
   const validate = (values) => {
     const errors = {};
+    if (!values.firstName) {
+      errors.firstName = "First name is required";
+    }
+    if (!values.lastName) {
+      errors.lastName = "Last name is required";
+    }
     if (!values.date) {
       errors.date = "Date is required";
     }
@@ -32,7 +45,6 @@ const BookingForm = ({ availableTimes = [], onUpdateTimes, onUpdateDate }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Update date field and notify parent component
     if (name === "date") {
       onUpdateDate(value);
     }
@@ -47,14 +59,15 @@ const BookingForm = ({ availableTimes = [], onUpdateTimes, onUpdateDate }) => {
     e.preventDefault();
     const validationErrors = validate(formValues);
     if (Object.keys(validationErrors).length === 0) {
-      // Notify parent component of selected time and date
       onUpdateTimes({
         date: formValues.date,
         time: formValues.time,
       });
+      onSubmit(formValues); // Call the onSubmit function with form data
 
-      // Reset form values after submission
       setFormValues({
+        firstName: "",
+        lastName: "",
         date: "",
         time: "",
         guests: 1,
@@ -68,10 +81,31 @@ const BookingForm = ({ availableTimes = [], onUpdateTimes, onUpdateDate }) => {
   return (
     <div className="form-container">
       <h1>Make Your Reservation</h1>
-      <form
-        onSubmit={handleSubmit}
-        style={{ display: "grid", maxWidth: "300px", gap: "20px" }}
-      >
+      <form onSubmit={handleSubmit} className="form-grid">
+        <div className="form-group">
+          <label htmlFor="firstName">First Name:</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={formValues.firstName}
+            onChange={handleChange}
+          />
+          {errors.firstName && <div className="error">{errors.firstName}</div>}
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name:</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={formValues.lastName}
+            onChange={handleChange}
+          />
+          {errors.lastName && <div className="error">{errors.lastName}</div>}
+        </div>
+
         <div className="form-group">
           <label htmlFor="date">Choose date:</label>
           <input
@@ -93,7 +127,6 @@ const BookingForm = ({ availableTimes = [], onUpdateTimes, onUpdateDate }) => {
             onChange={handleChange}
           >
             <option value="" label="Select time" />
-            {/* Render available times based on parent-provided availableTimes */}
             {availableTimes.map((time) => (
               <option key={time} value={time}>
                 {time}
