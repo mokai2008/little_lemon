@@ -1,7 +1,8 @@
+// BookingForm.js
 import React, { useState } from "react";
 import "./FormStyles.css"; // Import your CSS file
 
-const BookingForm = (props) => {
+const BookingForm = ({ availableTimes = [], onUpdateTimes, onUpdateDate }) => {
   const [formValues, setFormValues] = useState({
     date: "",
     time: "",
@@ -10,8 +11,6 @@ const BookingForm = (props) => {
   });
 
   const [errors, setErrors] = useState({});
-
-  const availableTimes = props.availableTimes;
 
   const validate = (values) => {
     const errors = {};
@@ -32,6 +31,12 @@ const BookingForm = (props) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Update date field and notify parent component
+    if (name === "date") {
+      onUpdateDate(value);
+    }
+
     setFormValues({
       ...formValues,
       [name]: value,
@@ -42,8 +47,13 @@ const BookingForm = (props) => {
     e.preventDefault();
     const validationErrors = validate(formValues);
     if (Object.keys(validationErrors).length === 0) {
-      console.log(formValues);
-      // Reset form values if needed
+      // Notify parent component of selected time and date
+      onUpdateTimes({
+        date: formValues.date,
+        time: formValues.time,
+      });
+
+      // Reset form values after submission
       setFormValues({
         date: "",
         time: "",
@@ -83,7 +93,7 @@ const BookingForm = (props) => {
             onChange={handleChange}
           >
             <option value="" label="Select time" />
-            {/* Step 2: Map available times to options */}
+            {/* Render available times based on parent-provided availableTimes */}
             {availableTimes.map((time) => (
               <option key={time} value={time}>
                 {time}
