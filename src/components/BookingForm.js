@@ -83,7 +83,12 @@ const BookingForm = ({
   return (
     <div className="form-container">
       <h1>Make Your Reservation</h1>
-      <form onSubmit={handleSubmit} className="form-grid">
+      <form
+        onSubmit={handleSubmit}
+        className="form-grid"
+        aria-labelledby="bookingFormTitle"
+      >
+        {/* Added an ID for ARIA label */}
         <div className="form-group">
           <label htmlFor="firstName">First Name:</label>
           <input
@@ -92,10 +97,16 @@ const BookingForm = ({
             name="firstName"
             value={formValues.firstName}
             onChange={handleChange}
+            aria-label="First Name" // ARIA label for accessibility
+            required // Mark as required for accessibility
           />
-          {errors.firstName && <div className="error">{errors.firstName}</div>}
+          {errors.firstName && (
+            <div className="error" role="alert">
+              {errors.firstName}
+            </div>
+          )}{" "}
+          {/* Added role alert */}
         </div>
-
         <div className="form-group">
           <label htmlFor="lastName">Last Name:</label>
           <input
@@ -104,10 +115,16 @@ const BookingForm = ({
             name="lastName"
             value={formValues.lastName}
             onChange={handleChange}
+            aria-label="Last Name" // ARIA label for accessibility
+            required // Mark as required for accessibility
           />
-          {errors.lastName && <div className="error">{errors.lastName}</div>}
+          {errors.lastName && (
+            <div className="error" role="alert">
+              {errors.lastName}
+            </div>
+          )}{" "}
+          {/* Added role alert */}
         </div>
-
         <div className="form-group">
           <label htmlFor="date">Choose date:</label>
           <input
@@ -116,10 +133,16 @@ const BookingForm = ({
             name="date"
             value={formValues.date}
             onChange={handleChange}
+            aria-label="Date" // ARIA label for accessibility
+            required // Mark as required for accessibility
           />
-          {errors.date && <div className="error">{errors.date}</div>}
+          {errors.date && (
+            <div className="error" role="alert">
+              {errors.date}
+            </div>
+          )}{" "}
+          {/* Added role alert */}
         </div>
-
         <div className="form-group">
           <label htmlFor="time">Choose time:</label>
           <select
@@ -127,6 +150,8 @@ const BookingForm = ({
             name="time"
             value={formValues.time}
             onChange={handleChange}
+            aria-label="Select time" // ARIA label for accessibility
+            required // Mark as required for accessibility
           >
             <option value="" label="Select time" />
             {availableTimes.map((time) => (
@@ -135,9 +160,13 @@ const BookingForm = ({
               </option>
             ))}
           </select>
-          {errors.time && <div className="error">{errors.time}</div>}
+          {errors.time && (
+            <div className="error" role="alert">
+              {errors.time}
+            </div>
+          )}{" "}
+          {/* Added role alert */}
         </div>
-
         <div className="form-group">
           <label htmlFor="guests">Number of guests:</label>
           <input
@@ -149,10 +178,16 @@ const BookingForm = ({
             value={formValues.guests}
             onChange={handleChange}
             placeholder="1"
+            aria-label="Number of guests" // ARIA label for accessibility
+            required // Mark as required for accessibility
           />
-          {errors.guests && <div className="error">{errors.guests}</div>}
+          {errors.guests && (
+            <div className="error" role="alert">
+              {errors.guests}
+            </div>
+          )}{" "}
+          {/* Added role alert */}
         </div>
-
         <div className="form-group">
           <label htmlFor="occasion">Occasion:</label>
           <select
@@ -160,15 +195,23 @@ const BookingForm = ({
             name="occasion"
             value={formValues.occasion}
             onChange={handleChange}
+            aria-label="Select occasion" // ARIA label for accessibility
+            required // Mark as required for accessibility
           >
             <option value="" label="Select occasion" />
             <option value="Birthday">Birthday</option>
             <option value="Anniversary">Anniversary</option>
           </select>
-          {errors.occasion && <div className="error">{errors.occasion}</div>}
+          {errors.occasion && (
+            <div className="error" role="alert">
+              {errors.occasion}
+            </div>
+          )}{" "}
+          {/* Added role alert */}
         </div>
-
-        <button type="submit">Make Your Reservation</button>
+        <button type="submit" aria-label="Make your reservation">
+          Make Your Reservation
+        </button>
       </form>
     </div>
   );
