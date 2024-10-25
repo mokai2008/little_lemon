@@ -1,4 +1,3 @@
-// BookingForm.js
 import React, { useState } from "react";
 import "./FormStyles.css"; // Import your CSS file
 
@@ -45,13 +44,16 @@ const BookingForm = ({
   const handleChange = (e) => {
     const { name, value } = e.target;
 
+    // Convert guests to a number if the field is 'guests'
+    const newValue = name === "guests" ? Number(value) : value;
+
     if (name === "date") {
       onUpdateDate(value);
     }
 
     setFormValues({
       ...formValues,
-      [name]: value,
+      [name]: newValue,
     });
   };
 
@@ -63,7 +65,7 @@ const BookingForm = ({
         date: formValues.date,
         time: formValues.time,
       });
-      onSubmit(formValues); // Call the onSubmit function with form data
+      onSubmit(formValues);
 
       setFormValues({
         firstName: "",

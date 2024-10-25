@@ -12,7 +12,7 @@ export function updateTimes(state, action) {
   switch (action.type) {
     case "UPDATE_DATE": {
       const date = action.payload;
-      const availableTimes = fetchAPI(new Date(date));
+      const availableTimes = initializeTimes();
       const dateEntry = state.find((item) => item.selectedDate === date);
 
       if (!dateEntry) {
