@@ -1,30 +1,35 @@
 .chicago {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: center;
-    align-items: center;
-    width: 90%; /* Adjusted width for better mobile display */
-    margin: 100px auto;
+    flex-direction: row; /* Row layout for larger screens */
+    justify-content: space-between; /* Space out elements */
+    align-items: flex-start; /* Align items at the start */
+    width: 90%; /* Adjusted width for better display */
+    margin: 100px auto; /* Center the section */
 }
 
 .chicago > div {
-    width: 100%; /* Full width for smaller screens */
+    width: 48%; /* Adjust width to allow space for images */
     padding: 10px; /* Added padding for better spacing */
 }
 
 .chicago .images {
-    display: flex; /* Use flex to arrange images */
-    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
-    justify-content: center; /* Center images */
-    width: 100%;
-    position: relative;
+    position: relative; /* Allow absolute positioning of child images */
+    width: 50%; /* Set width to half of the parent for images */
+    height: 300px; /* Set a fixed height for images container */
 }
 
 .chicago .images img {
-    max-width: 100%; /* Adjust to full width for smaller screens */
-    height: auto; /* This keeps the aspect ratio intact */
+    max-width: 70%; /* Set a smaller max-width for images */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
-    margin: 5px; /* Added margin between images */
+    position: absolute; /* Position images absolutely */
+}
+
+/* Specific positions for the images */
+
+.images img:nth-child(2) {
+    top: 50px; /* Position second image to overlap by a small percentage */
+    right: 50px; /* Center horizontally */
 }
 
 .chicago h2 {
@@ -40,20 +45,15 @@
     color: #000;
 }
 
-.images img:nth-child(1) {
-    position: absolute; /* Adjust based on design */
-    right: 100px;
-    top: 100px;
-}
-
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
     .chicago {
-        flex-direction: column; /* Stack elements vertically */
+        flex-direction: row; /* Stack elements vertically */
         margin: 50px 10px; /* Adjust margin for smaller screens */
     }
 
-    .chicago > div {
+    .chicago > div,
+    .chicago .images {
         width: 100%; /* Full width for smaller screens */
     }
 
@@ -66,12 +66,35 @@
     }
 
     .chicago .images img {
-        max-width: 60%; /* Set a smaller max width for images */
-        margin: 10px; /* Space between images */
+        max-width: 90%; /* Increase max-width for smaller screens */
     }
+
+    .chicago .images img {
+
+        position: clear; /* Position images absolutely */
+    }
+
+    .chicago .images {
+        position: static; /* Allow absolute positioning of child images */
+
+    }
+    
+    .chicago .images img {
+
+        position: static; /* Position images absolutely */
+    }
+    
+
+
+    
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
+    .chicago {
+        flex-direction: column; /* Stack elements vertically */
+        margin: 50px 10px; /* Adjust margin for smaller screens */
+        margin-bottom: 300px;
+    }
     .chicago h2 {
         font-size: 24px; /* Further reduce font size */
     }
@@ -81,12 +104,17 @@
     }
 
     .chicago .images img {
-        max-width: 50%; /* Further reduce image size */
-        margin: 10px; /* Space between images */
+        max-width: 100%; /* Use full width for images on very small screens */
     }
 
-    .images img:nth-child(1) {
-        position: static; /* Reset position for small screens */
-        margin: 0 auto; /* Center image */
+
+    
+}
+
+/* Additional media query for very large screens */
+@media (min-width: 1200px) {
+    .chicago {
+        margin-bottom: 150px; /* Large bottom margin for very large screens */
     }
 }
+

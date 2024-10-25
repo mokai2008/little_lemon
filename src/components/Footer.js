@@ -10,7 +10,7 @@ const Footer = () => {
           <img src={footerImg} alt="footer-img" />
         </div>
         <div className={classes.footer_nav}>
-          <h3 style={{ color: "#Fcce14", marginLeft: "20px" }}>Navigation</h3>
+          <h3>Navigation</h3>
           <ul>
             <li>Home</li>
             <li>About</li>
@@ -21,8 +21,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className={classes.contact}>
-          <h3 style={{ color: "#Fcce14", marginLeft: "50px" }}>Contact</h3>
-
+          <h3>Contact</h3>
           <ul>
             <li>123-456-7890</li>
             <li>123 street name</li>
@@ -30,8 +29,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className={classes.social}>
-          <h3 style={{ color: "#Fcce14", marginLeft: "40px" }}>Social</h3>
-
+          <h3>Social</h3>
           <ul>
             <li>Facebook</li>
             <li>Twitter</li>
