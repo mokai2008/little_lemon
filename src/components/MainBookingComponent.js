@@ -1,23 +1,23 @@
 import React, { useReducer, useState } from "react";
 import BookingForm from "./BookingForm";
+import { fetchAPI } from "../api";
 
-const defaultTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-
-function initializeTimes() {
-  return [...defaultTimes];
+export function initializeTimes() {
+  return fetchAPI(new Date());
 }
 
-function updateTimes(state, action) {
+export function updateTimes(state, action) {
   switch (action.type) {
     case "UPDATE_DATE": {
       const date = action.payload;
+      const availableTimes = fetchAPI(new Date(date));
       const dateEntry = state.find((item) => item.selectedDate === date);
 
       if (!dateEntry) {
         // Add new date with default times if it doesn't exist
         return [
           ...state,
-          { selectedDate: date, availableTimes: initializeTimes() },
+          { selectedDate: date, availableTimes: availableTimes },
         ];
       }
       return state;
